@@ -1,1 +1,7 @@
 # Method_Area
+Methid Area (Java 8 dan keyin Metaspace) odatda tez tez tozalanmaydigan xotira qismi hisoblanadi.
+U yerda klasslar haqidagi ma'lumotlar (metadata), static o'zgaruvchilar va metodlar saqlanadi.Bu xotira faqat ma'lum holatlarda garbage collection (GC) orqali tozolanadi.
+Birinchi holat -class loader o'chirilganda.Agar ma'lum bir class loader  endi ishlatilmasa va JVM tomonidan o'chirib yuborilsa, shu loader orqali yuklangan barcha klasslar ham o'chadi.Natijada Method Area ichida saqlangan ularning metadata ma;lumotlari ham tozolanadi.
+Ikkinchi holat -Full GC(Major GC) vaqtida .JVM katta tozalash jarayonini boshlaganda, u faqat heap emas , balki Method Area dagi foydalanilmayotgan klasslarni ham tekshiradi.Agar klassga hech qanday murojaat bo'lmasa va uning class loaderi ham ishlatilmayotgan bo'lsa , u holda bu klass o'chiriladi va unga  tegishli xotira bo'shatiladi .
+Shuni tushunishi muhimki ,Method Area dagi ma'lumotlar oddiy obyektlarga qaraganda ancha uzoq yashaydi.Agar  class loader hali mavjud bo'lsa ,unga tegishli klasslar va ularning metadata ma'lumotlari ham o'chirildi va tegishli xotira bo'shatiladi..
+Shuni tushunishi muhimki , Method Areadagi ma'lumotlar oddiy obyektlarga qaraganda ancha uzoq yashaydi.Agar class loader hali mavjud bo'lsa ,unga tegishli klasslar va ularning metadata ma'lumotlari ham o'chirilmaydi.Shu sababli Method Area da GC kamdan kam sodir bo'ladi va asosan faqat zarurat tug'ilganda ishlaydi.
